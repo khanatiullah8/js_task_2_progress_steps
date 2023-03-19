@@ -1,0 +1,233 @@
+@charset "utf-8";
+/* ==========================================================================
+   1. CSS Reset Code
+   ========================================================================== */
+
+/* 1.1. Eric Meyers Reset
+   http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+   ========================================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
+ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* Force scrollbar */
+html { overflow-y: scroll; }
+
+/* Align radios and text inputs with their label */
+
+input[type='radio'] { vertical-align: text-bottom; }
+
+/* Hand cursor on clickable input elements */
+label,
+input[type='button'],
+input[type='submit'],
+button {
+  cursor: pointer;
+}
+
+strong {
+  font-weight: bold;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+em { font-style: italic; }
+
+img {
+  width: 100%;
+  border: 0;
+  vertical-align: middle;
+}
+
+sub,
+sup {
+  vertical-align: baseline;
+  position: relative;
+  font-size: 55%;
+  line-height: 0;
+}
+
+sup { top: -.7em; }
+sub { bottom: -.25em; }
+
+/* 1.2. Clear Fix
+   ========================== */
+
+.cf:before,
+.cf:after {
+  display: table;
+  content: " ";
+}
+
+.cf:after { clear: both; }
+.cf { *zoom: 1; }
+
+/*for all*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --clr-grey1: #f6f7fc;
+  --clr-grey2: #c7c6c9;
+  --clr-grey3: #777;
+  --clr-blue: #3292d4;
+  --clr-white: #fff;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+span {
+  display: inline-block;
+}
+
+/*=================================
+  main styling starts here
+=================================*/
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-grey1);
+}
+
+.wrapper {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  overflow: hidden;
+}
+
+.step-box {
+  position: relative;
+}
+
+.step-count {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  color: var(--clr-grey3);
+}
+
+.step-count .step {
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--clr-grey2);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  background-color: var(--clr-grey1);
+  transition: all .3s;
+}
+
+.step-count-cirlce {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 12;
+  transform: translateY(-50%);
+}
+
+.step-count-cirlce .step-circle {
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--clr-blue);
+  border-radius: 50%;
+  z-index: 12;
+  text-indent: -99999px;
+}
+
+.step-circle.visibilityHidden {
+  visibility: hidden;
+}
+
+.step-track {
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.step-track .track {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-indent: -99999px;
+  transition: all .3s;
+}
+
+.step-track .track-bottom {
+  background-color: var(--clr-grey2);
+}
+
+.step-track .track-top {
+  width: 0;
+  background-color: var(--clr-blue);
+}
+
+.step-control {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.step-control .control {
+  padding: 8px 35px;
+  border-radius: 6px;
+  background-color: var(--clr-blue);
+  color: var(--clr-white);
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: all .3s;
+}
+
+.control.bg-event {
+  background-color: var(--clr-grey2);
+  pointer-events: none;
+}
+
+/*=================================
+  main styling ends here
+=================================*/
